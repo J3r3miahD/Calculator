@@ -1,21 +1,39 @@
 # Addition Function
-def addition(x, y):
-    return x + y
+def addition(a, b):
+    return a + b
 
 # Subtraction Function
-def subtraction(x, y):
-    return x - y
+def subtraction(a, b):
+    return a - b
 
 # Multiplication Function
-def multiplication(x, y):
-    return x * y
+def multiplication(a, b):
+    return a * b
 
 # Division Function
-def division(x, y):
-    if x == 0 or y == 0:
-        print('zero division not allowed')
+def division(a, b):
+    if a == 0 or b == 0:
+        print('Zero division not allowed')
         return 'None'
-    return x / y
+    return a / b
+
+# Display instructions before starting the program
+print("""
+Welcome to the Simple Calculator!
+
+This program will allow you to perform basic arithmetic operations: addition, subtraction, multiplication, and division.
+You can choose one of the following options:
+- 'a' for Addition
+- 's' for Subtraction
+- 'm' for Multiplication
+- 'd' for Division
+
+You will be asked to input two numbers. The program will then perform the selected operation on those numbers and display the result.
+
+You can type 'stop' to exit the program at any time.
+
+Let's begin!
+""")
 
 while True:
     print('Enter the function you would like to perform')
@@ -24,24 +42,26 @@ while True:
     print('\'m\' for Multiplication')
     print('\'d\' for Division')
     print('\'stop\' to exit')
-    fun = input('Enter selection: ')
+    function = input('Enter selection: ')
 
-    fun = fun.lower()
+    function = function.lower()
 
-    if fun in ('a', 's', 'm', 'd'):
-        x = float(input('Enter your first value: '))
-        y = float(input('Enter you second value: '))
+    if function in ('a', 's', 'm', 'd'):
+        first_value = float(input('Enter your first value: '))
+        second_value = float(input('Enter your second value: '))
 
-        if fun == 'a':
-            print(x, ' + ', y, ' = ', addition(x, y))
-        elif fun == 's':
-            print(x, ' - ', y, ' = ', subtraction(x, y))
-        elif fun == 'm':
-            print(x, ' * ', y, ' = ', multiplication(x, y))
-        elif fun == 'd':
-            print(x, ' / ', y, ' = ', division(x, y))
+        if function == 'a':
+            print(first_value, ' + ', second_value, ' = ', addition(first_value, second_value))
+        elif function == 's':
+            print(first_value, ' - ', second_value, ' = ', subtraction(first_value, second_value))
+        elif function == 'm':
+            print(first_value, ' * ', second_value, ' = ', multiplication(first_value, second_value))
+        elif function == 'd':
+            print(first_value, ' / ', second_value, ' = ', division(first_value, second_value))
         print('\n')
 
-    else:
-        print('exit')
+    elif function == 'stop':
+        print('Exiting...')
         break
+    else:
+        print("Invalid selection, please choose a valid operation ('a', 's', 'm', 'd') or 'stop' to exit.\n")
